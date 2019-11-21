@@ -11,7 +11,7 @@ Facter.add("dkmsversion") do
   confine :kernel => :linux
   setcode do
     out = Facter::Util::Resolution.exec("dkms --version 2>&1")
-    if out =~/^dkms:\s+(.+)$/
+    if out =~/^dkms:\s*(.+)$/
       $1
     end
   end
